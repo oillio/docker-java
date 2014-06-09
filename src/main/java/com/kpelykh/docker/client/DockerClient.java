@@ -103,7 +103,6 @@ public class DockerClient {
 		//client = new UnixSocketClient(clientConfig);
 
 		client.addFilter(new JsonClientFilter());
-		client.addFilter(new LoggingFilter());
 	}
 
 	public void setCredentials(String username, String password, String email) {
