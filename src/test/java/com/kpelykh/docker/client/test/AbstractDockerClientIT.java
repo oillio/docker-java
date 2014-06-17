@@ -26,7 +26,7 @@ public abstract class AbstractDockerClientIT extends Assert {
 
 	public void beforeTest() throws DockerException {
 		LOG.info("======================= BEFORETEST =======================");
-		String url = System.getProperty("docker.url", "http://localhost:4243");
+		String url = System.getProperty("docker.url", "http://localhost:2375");
 		LOG.info("Connecting to Docker server at " + url);
 		dockerClient = new DockerClient(url);
 

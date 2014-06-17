@@ -22,13 +22,13 @@ By default Docker server is using UNIX sockets for communication with the Docker
 client uses TCP/IP to connect to the Docker server, so you will need to make sure that your Docker server is
 listening on TCP port. To allow Docker server to use TCP add the following line to /etc/default/docker
 
-    DOCKER_OPTS="-H tcp://127.0.0.1:4243 -H unix:///var/run/docker.sock"
+    DOCKER_OPTS="-H tcp://127.0.0.1:2375 -H unix:///var/run/docker.sock"
 
 More details setting up docket server can be found in official documentation: http://docs.docker.io/en/latest/use/basics/
 
 Now make sure that docker is up:
 
-    $ docker -H tcp://127.0.0.1:4243 version
+    $ docker -H tcp://127.0.0.1:2375 version
 
     Client version: 0.8.1
     Go version (client): go1.2
@@ -53,7 +53,7 @@ Run build with tests:
 
 ## Example code snippets:
 
-    DockerClient dockerClient = new DockerClient("http://localhost:4243");
+    DockerClient dockerClient = new DockerClient("http://localhost:2375");
 
 ###### Get Docker info:
 
@@ -114,7 +114,7 @@ For additional examples, please look at [DockerClientTest.java](https://github.c
 
 There are a couple of configuration items, all of which have sensible defaults:
 
-* `url` The Docker URL, e.g. `http://localhost:4243`.
+* `url` The Docker URL, e.g. `http://localhost:2375`.
 * `version` The API version, e.g. `1.11`.
 * `username` Your repository username (required to push containers).
 * `password` Your repository password.
@@ -125,7 +125,7 @@ There are three ways to configure, in descending order of precedence:
 ##### Programatic:
 In your application, e.g.
 
-    DockerClient docker = new DockerClient("http://localhost:4243");
+    DockerClient docker = new DockerClient("http://localhost:2375");
     docker.setCredentials("dockeruser", "ilovedocker", "dockeruser@github.com");`
 
 ##### System Properties:
@@ -141,5 +141,5 @@ In `$HOME/.docker.io.properties`, e.g.:
 ##### Class Path
 In the class path at `/docker.io.properties`, e.g.:
 
-    docker.io.url=http://localhost:4243
+    docker.io.url=http://localhost:2375
     docker.io.version=1.11
